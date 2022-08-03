@@ -9,7 +9,15 @@ public class MoveBlockManager : MonoBehaviour
     [SerializeField] Color SelectHoldBlockColor;
 
     [SerializeField] int SelectHoldBlockNumber;
-    [SerializeField] int Up, Down, Left, Right;
+
+    int[,] TestBlock = new int[5, 5]
+    {
+     { 0, 0, 0, 0, 0 },
+     { 0, 0, 0, 0, 0 },
+     { 0, 0, 0, 0, 0 },
+     { 0, 0, 0, 0, 0 },
+     { 0, 0, 0, 0, 0 }
+    };
 
     private void Awake()
     {
@@ -20,7 +28,7 @@ public class MoveBlockManager : MonoBehaviour
     void Update()
     {
         ResearchHoldBlock();
-    }   
+    }
 
     void ResearchHoldBlock()
     {
@@ -36,7 +44,7 @@ public class MoveBlockManager : MonoBehaviour
             SelectHoldBlock = hit.transform.gameObject;
             SelectHoldBlockNumber = SelectHoldBlock.GetComponent<HoldBlock>().HoldBlockNum;
 
-            HoldBlockManager.ChangeColor(SelectHoldBlockNumber, SelectHoldBlockColor, Up, Down, Left, Right);
+            HoldBlockManager.FillColor(TestBlock, SelectHoldBlockNumber, SelectHoldBlockColor);
         }
     }
 }
