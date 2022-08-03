@@ -20,7 +20,7 @@ public class HoldBlockManager : MonoBehaviour
         
     }
 
-    void HoldBlockBasicSetting()
+    void HoldBlockBasicSetting() // 기초적인 HoldBlock 번호 세팅을 해준다
     {
         int x = 0, y = 0;
 
@@ -41,11 +41,14 @@ public class HoldBlockManager : MonoBehaviour
             y = 0;
             x++;
         } // HoldBlock 리스트 추가 및 번호 설정
+    }
 
-        HoldBlockList[0, 0].GetComponent<SpriteRenderer>().color = Color.red;
-        HoldBlockList[1, 0].GetComponent<SpriteRenderer>().color = Color.red;
-        HoldBlockList[2, 0].GetComponent<SpriteRenderer>().color = Color.blue;
-        HoldBlockList[3, 0].GetComponent<SpriteRenderer>().color = Color.cyan;
-        HoldBlockList[4, 0].GetComponent<SpriteRenderer>().color = Color.red;
+    public void ChangeColor(int BlockNumber, Color BlockColor, int Up, int Down, int Left, int Right) // HoldBlock의 색깔을 드랍한 블럭의 위치와 색깔과 같게 해준다.
+    {
+        HoldBlockList[BlockNumber / 10, BlockNumber % 10].GetComponent<SpriteRenderer>().color = BlockColor;
+        HoldBlockList[BlockNumber / 10 - Up, BlockNumber % 10].GetComponent<SpriteRenderer>().color = BlockColor;
+        HoldBlockList[BlockNumber / 10 + Down, BlockNumber % 10].GetComponent<SpriteRenderer>().color = BlockColor;
+        HoldBlockList[BlockNumber / 10, BlockNumber % 10 - Left].GetComponent<SpriteRenderer>().color = BlockColor;
+        HoldBlockList[BlockNumber / 10, BlockNumber % 10 + Right].GetComponent<SpriteRenderer>().color = BlockColor;
     }
 }
