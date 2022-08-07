@@ -6,6 +6,7 @@ public class HoldBlock : MonoBehaviour
 {
     [Header("HoldBlock_¼Ó¼º")]
     public int HoldBlockNum = 0;
+    public bool IsFill = false;
 
 
     // Start is called before the first frame update

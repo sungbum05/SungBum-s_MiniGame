@@ -14,7 +14,7 @@ public class MoveBlockManager : MonoBehaviour
     {
      { 0, 0, 0, 0, 0 },
      { 0, 0, 0, 0, 0 },
-     { 0, 0, 0, 0, 0 },
+     { 0, 0, 1, 0, 0 },
      { 0, 0, 0, 0, 0 },
      { 0, 0, 0, 0, 0 }
     };
@@ -44,7 +44,8 @@ public class MoveBlockManager : MonoBehaviour
             SelectHoldBlock = hit.transform.gameObject;
             SelectHoldBlockNumber = SelectHoldBlock.GetComponent<HoldBlock>().HoldBlockNum;
 
-            HoldBlockManager.FillColor(TestBlock, SelectHoldBlockNumber, SelectHoldBlockColor);
+            HoldBlockManager.DropMoveBlock(TestBlock, SelectHoldBlockNumber, SelectHoldBlockColor);
+
         }
     }
 }
