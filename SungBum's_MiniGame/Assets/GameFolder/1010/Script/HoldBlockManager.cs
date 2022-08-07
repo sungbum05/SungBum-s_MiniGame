@@ -134,7 +134,7 @@ public class HoldBlockManager : MonoBehaviour
                         for (int j = 0; j < HoldBlockList.GetLength(0); j++)
                         {
                             Debug.Log(ClearLineList[0]);
-
+                                
                             HoldBlockList[j, (int)ClearLineList[0].y - 1].GetComponent<SpriteRenderer>().color = Color.white;
                             HoldBlockList[j, (int)ClearLineList[0].y - 1].GetComponent<HoldBlock>().IsFill = false;
 

@@ -10,11 +10,11 @@ public class MoveBlockManager : MonoBehaviour
 
     [SerializeField] int SelectHoldBlockNumber;
 
-    int[,] TestBlock = new int[5, 5]
+    int[,] ReciveBlockData = new int[5, 5]
     {
      { 0, 0, 0, 0, 0 },
      { 0, 0, 0, 0, 0 },
-     { 0, 0, 1, 0, 0 },
+     { 0, 0, 0, 0, 0 },
      { 0, 0, 0, 0, 0 },
      { 0, 0, 0, 0, 0 }
     };
@@ -37,14 +37,19 @@ public class MoveBlockManager : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(MousePosition, transform.forward, 10.0f);
         Debug.DrawRay(MousePosition, transform.forward * 10.0f, Color.red, 0.3f);
 
-        if (hit && Input.GetMouseButtonUp(0))
+        if(hit.transform.gameObject.tag == "MoveBlock" && Input.GetMouseButton(0)) // 문제점 여기 수정
+        {
+            Debug.Log("MoveBlock");
+        }
+
+        if (hit.transform.gameObject.tag == "HoldBlock" && Input.GetMouseButtonUp(0))
         {
             //Debug.Log(hit.transform.gameObject.GetComponent<HoldBlock>().HoldBlockNum);
 
             SelectHoldBlock = hit.transform.gameObject;
             SelectHoldBlockNumber = SelectHoldBlock.GetComponent<HoldBlock>().HoldBlockNum;
 
-            HoldBlockManager.DropMoveBlock(TestBlock, SelectHoldBlockNumber, SelectHoldBlockColor);
+            HoldBlockManager.DropMoveBlock(ReciveBlockData, SelectHoldBlockNumber, SelectHoldBlockColor);
 
         }
     }
