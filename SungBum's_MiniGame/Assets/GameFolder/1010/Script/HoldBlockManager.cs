@@ -7,13 +7,16 @@ public class HoldBlockManager : MonoBehaviour
     [Header("HoldBlockManager_속성")]
     [SerializeField] Transform BlockZipTransform;
 
-    [SerializeField] GameObject [ , ] HoldBlockList = new GameObject [10, 10];
+    [SerializeField] GameObject[,] HoldBlockList = new GameObject[10, 10];
     [SerializeField] GameObject SelectHoldBlock;
 
     [SerializeField] bool IsHorizontalLineFill = false, IsVerticalLineFill = false;
-    [SerializeField] List<Vector2> ClearLineList; 
+    [SerializeField] List<Vector2> ClearLineList;
+    [SerializeField] int ClearLineListCount;
 
     [SerializeField] int Score = 0;
+
+    [SerializeField] List<MoveBlock> MoveBlockList;
 
     private void Awake()
     {
@@ -25,15 +28,55 @@ public class HoldBlockManager : MonoBehaviour
         LineClear();
     }
 
+    public void DropMoveBlock(int[,] FillblockData, int BlockNumber, Color BlockColor, GameObject MoveBlock) // HoldBlock의 색깔을 드랍한 블럭의 위치와 색깔과 같게 해준다.
+    {
+        int PlusScore = 0;
+
+        if (CheckFillHoldBlock(FillblockData, BlockNumber))
+        {
+            Debug.Log("Fill");
+            return;
+        }
+
+        //드랍이 잘 된것을 체크 후 비활성화
+        MoveBlock.SetActive(false);
+        MoveBlock.GetComponent<MoveBlock>().DropBlock = true;
+        //
+
+        for (int i = 0; i < FillblockData.GetLength(0); i++)
+        {
+            for (int j = 0; j < FillblockData.GetLength(1); j++)
+            {
+                if (FillblockData[i, j] == 1)
+                {
+                    int FrontArrayNumber = (BlockNumber / 10) + (i - (FillblockData.GetLength(0) / 2));
+                    int BackArrayNumber = (BlockNumber % 10) + (j - (FillblockData.GetLength(1) / 2));
+
+                    SelectHoldBlock = HoldBlockList[FrontArrayNumber, BackArrayNumber];
+
+                    SelectHoldBlock.GetComponent<SpriteRenderer>().color = BlockColor;
+                    SelectHoldBlock.GetComponent<HoldBlock>().IsFill = true;
+
+                    PlusScore++;
+                }
+            }
+        }
+
+        HorizontalLineCheck();
+        VerticalLineCheck();
+
+        AddScore(PlusScore);
+    }
+
     void HoldBlockBasicSetting() // 기초적인 HoldBlock 번호 세팅을 해준다
     {
         int x = 0, y = 0;
 
         int AddHoldBlockNum = 0;
 
-        foreach(Transform HoldBlocks in BlockZipTransform)
+        foreach (Transform HoldBlocks in BlockZipTransform)
         {
-            foreach(Transform HoldBlock in HoldBlocks)
+            foreach (Transform HoldBlock in HoldBlocks)
             {
                 HoldBlock.GetComponent<HoldBlock>().HoldBlockNum = AddHoldBlockNum;
 
@@ -71,6 +114,7 @@ public class HoldBlockManager : MonoBehaviour
             if (LineCheck == true)
             {
                 ClearLineList.Add(new Vector2(i + 1, 0));
+                ClearLineListCount++;
             }
         }
 
@@ -95,13 +139,14 @@ public class HoldBlockManager : MonoBehaviour
             if (LineCheck == true)
             {
                 ClearLineList.Add(new Vector2(0, i + 1));
+                ClearLineListCount++;
             }
         }
 
         IsVerticalLineFill = true;
     }
 
-    void LineClear() // 체크를 통해 받아온 라인 클리어
+    void LineClear() // 체크를 통해 받아온 라인 클리어 --> GameOverCheck
     {
         if (IsHorizontalLineFill && IsVerticalLineFill)
         {
@@ -110,15 +155,15 @@ public class HoldBlockManager : MonoBehaviour
 
             Debug.Log("Clear");
 
-            if(ClearLineList.Count > 0)
+            if (ClearLineList.Count > 0)
             {
                 Debug.Log("Not Null");
 
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < ClearLineListCount; i++)
                 {
                     Debug.Log(i);
 
-                    if(ClearLineList[0].x > 0) // 가로 라인 클리어
+                    if (ClearLineList[0].x > 0) // 가로 라인 클리어
                     {
                         for (int j = 0; j < HoldBlockList.GetLength(1); j++)
                         {
@@ -134,7 +179,7 @@ public class HoldBlockManager : MonoBehaviour
                         for (int j = 0; j < HoldBlockList.GetLength(0); j++)
                         {
                             Debug.Log(ClearLineList[0]);
-                                
+
                             HoldBlockList[j, (int)ClearLineList[0].y - 1].GetComponent<SpriteRenderer>().color = Color.white;
                             HoldBlockList[j, (int)ClearLineList[0].y - 1].GetComponent<HoldBlock>().IsFill = false;
 
@@ -144,8 +189,39 @@ public class HoldBlockManager : MonoBehaviour
 
                     ClearLineList.RemoveAt(0);
                 }
+
+                ClearLineListCount = 0;
+            }
+
+            GameOverCheck();
+        }
+    }
+
+    void GameOverCheck()
+    {
+        for (int i = 0; i < MoveBlockList.Count; i++)
+        {
+            if(MoveBlockList[i].DropBlock == false)
+            {
+                for (int j = 0; j < HoldBlockList.GetLength(0); j++)
+                {
+                    for (int k = 0; k < HoldBlockList.GetLength(1); k++)
+                    {
+                        //Debug.Log((j * 10) + k);
+
+                        if (CheckFillHoldBlock(MoveBlockList[i].MgrSendBlockBox, (j * 10) + k) == false)
+                            return;
+                    }
+                }
             }
         }
+
+        GameOver();
+    }
+
+    void GameOver()
+    {
+        Debug.Log("GameOver");
     }
 
     bool CheckFillHoldBlock(int[,] FillblockData, int BlockNumber) // 블럭의 예외처리 담당(채워져 있거나 정해진 칸을 벗어났던가)
@@ -175,40 +251,5 @@ public class HoldBlockManager : MonoBehaviour
         }
 
         return false;
-    }
-
-    public void DropMoveBlock(int[,] FillblockData, int BlockNumber, Color BlockColor) // HoldBlock의 색깔을 드랍한 블럭의 위치와 색깔과 같게 해준다.
-    {
-        int PlusScore = 0;
-
-        if (CheckFillHoldBlock(FillblockData, BlockNumber))
-        {
-            Debug.Log("Fill");
-            return;
-        }
-
-        for (int i = 0; i < FillblockData.GetLength(0); i++)
-        {
-            for (int j = 0; j < FillblockData.GetLength(1); j++)
-            {
-                if(FillblockData[i,j] == 1)
-                {
-                    int FrontArrayNumber = (BlockNumber / 10) + (i - (FillblockData.GetLength(0) / 2));
-                    int BackArrayNumber = (BlockNumber % 10) + (j - (FillblockData.GetLength(1) / 2));
-
-                    SelectHoldBlock = HoldBlockList[FrontArrayNumber, BackArrayNumber];
-
-                    SelectHoldBlock.GetComponent<SpriteRenderer>().color = BlockColor;
-                    SelectHoldBlock.GetComponent<HoldBlock>().IsFill = true;
-
-                    PlusScore++;
-                }
-            }
-        }
-
-        HorizontalLineCheck();
-        VerticalLineCheck();
-
-        AddScore(PlusScore);
     }
 }

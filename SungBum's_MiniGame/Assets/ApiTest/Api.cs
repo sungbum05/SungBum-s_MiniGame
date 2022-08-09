@@ -5,22 +5,18 @@ using UnityEngine.Networking;
 
 public class Api : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(GetApi());
+        StartCoroutine(WWWGETTest());
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator WWWGETTest()
     {
-        
-    }
+        // GET 방식
+        string apikey = "haMIFWTMA2Bq8rdxWFpRV-yxY40mgYdfqG7_btBeevw";
+        string url = "https://mathpid.com/POST/api/v1/game/diagnosis/setting(D32546876549)?apikey=haMIFWTMA2Bq8rdxWFpRV-yxY40mgYdfqG7_btBeevw";
 
-    IEnumerator GetApi()
-    {
-        string url = "POST/api/v1/game/diagnosis/setting";
-        UnityWebRequest www = UnityWebRequest.Get(url);
+        UnityWebRequest www = UnityWebRequest.Get(url); // 동작은 하지만 현재는 사용하지 않은 추세이므로, UnityWebRequest를 사용해야 함.
 
         yield return www.SendWebRequest();
 
@@ -28,8 +24,11 @@ public class Api : MonoBehaviour
         {
             Debug.Log(www.downloadHandler.text);
         }
-
         else
-            Debug.Log("ERROR");
+        {
+            Debug.Log("error");
+        }
     }
+
+
 }

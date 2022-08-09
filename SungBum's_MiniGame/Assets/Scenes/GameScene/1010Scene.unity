@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2574549}
   - component: {fileID: 2574550}
   - component: {fileID: 2574551}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 5657708}
   - component: {fileID: 5657709}
   - component: {fileID: 5657710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 19600533}
   - component: {fileID: 19600534}
   - component: {fileID: 19600535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -755,7 +755,7 @@ GameObject:
   - component: {fileID: 45693747}
   - component: {fileID: 45693748}
   - component: {fileID: 45693749}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -876,7 +876,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 55358806}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 61983829}
   - component: {fileID: 61983830}
   - component: {fileID: 61983831}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -1043,7 +1043,7 @@ GameObject:
   - component: {fileID: 75521059}
   - component: {fileID: 75521060}
   - component: {fileID: 75521061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -1291,7 +1291,7 @@ GameObject:
   - component: {fileID: 99558053}
   - component: {fileID: 99558055}
   - component: {fileID: 99558056}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -1822,7 +1822,7 @@ GameObject:
   - component: {fileID: 172678188}
   - component: {fileID: 172678189}
   - component: {fileID: 172678190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -1946,7 +1946,7 @@ GameObject:
   - component: {fileID: 178858320}
   - component: {fileID: 178858321}
   - component: {fileID: 178858322}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -2690,7 +2690,7 @@ GameObject:
   - component: {fileID: 234352298}
   - component: {fileID: 234352299}
   - component: {fileID: 234352300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -2938,7 +2938,7 @@ GameObject:
   - component: {fileID: 272198305}
   - component: {fileID: 272198306}
   - component: {fileID: 272198307}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -3310,7 +3310,7 @@ GameObject:
   - component: {fileID: 305421273}
   - component: {fileID: 305421274}
   - component: {fileID: 305421275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -3433,7 +3433,7 @@ GameObject:
   - component: {fileID: 307837525}
   - component: {fileID: 307837526}
   - component: {fileID: 307837527}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MoveBlock_2
   m_TagString: MoveBlock
   m_Icon: {fileID: 0}
@@ -3448,7 +3448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 307837524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.63, y: 0.5, z: 0}
+  m_LocalPosition: {x: -5.63, y: 0.5, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1337435169}
@@ -3497,6 +3497,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda41377d00faa5429a5ce8a0b76bb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OriginalVector: {x: 0, y: 0, z: 0}
+  SendColorData: {r: 0, g: 0, b: 0, a: 0}
+  AllDiffrentBlockDrop: 1
+  DropBlock: 0
+  MoveBlockManager: {fileID: 1381699501}
+  BlockColorList: []
   BlockZipTransform: {fileID: 307837525}
 --- !u!1 &316512017
 GameObject:
@@ -3634,7 +3640,7 @@ GameObject:
   - component: {fileID: 319714398}
   - component: {fileID: 319714399}
   - component: {fileID: 319714400}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -3758,7 +3764,7 @@ GameObject:
   - component: {fileID: 321412055}
   - component: {fileID: 321412056}
   - component: {fileID: 321412057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -3882,7 +3888,7 @@ GameObject:
   - component: {fileID: 321986347}
   - component: {fileID: 321986348}
   - component: {fileID: 321986349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -4205,7 +4211,7 @@ GameObject:
   - component: {fileID: 353909122}
   - component: {fileID: 353909123}
   - component: {fileID: 353909124}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -4453,7 +4459,7 @@ GameObject:
   - component: {fileID: 383185039}
   - component: {fileID: 383185040}
   - component: {fileID: 383185041}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -4949,7 +4955,7 @@ GameObject:
   - component: {fileID: 425378523}
   - component: {fileID: 425378524}
   - component: {fileID: 425378525}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -5197,7 +5203,7 @@ GameObject:
   - component: {fileID: 438760332}
   - component: {fileID: 438760333}
   - component: {fileID: 438760334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -5321,7 +5327,7 @@ GameObject:
   - component: {fileID: 440278004}
   - component: {fileID: 440278006}
   - component: {fileID: 440278007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -5569,7 +5575,7 @@ GameObject:
   - component: {fileID: 478453298}
   - component: {fileID: 478453299}
   - component: {fileID: 478453300}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -5693,7 +5699,7 @@ GameObject:
   - component: {fileID: 481466123}
   - component: {fileID: 481466124}
   - component: {fileID: 481466125}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -5817,7 +5823,7 @@ GameObject:
   - component: {fileID: 483522099}
   - component: {fileID: 483522100}
   - component: {fileID: 483522101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -5941,7 +5947,7 @@ GameObject:
   - component: {fileID: 486782458}
   - component: {fileID: 486782459}
   - component: {fileID: 486782460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -6224,7 +6230,7 @@ GameObject:
   - component: {fileID: 515251150}
   - component: {fileID: 515251151}
   - component: {fileID: 515251152}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -6348,7 +6354,7 @@ GameObject:
   - component: {fileID: 531742937}
   - component: {fileID: 531742938}
   - component: {fileID: 531742939}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -6621,7 +6627,7 @@ GameObject:
   - component: {fileID: 575624312}
   - component: {fileID: 575624313}
   - component: {fileID: 575624314}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -6869,7 +6875,7 @@ GameObject:
   - component: {fileID: 601576540}
   - component: {fileID: 601576541}
   - component: {fileID: 601576542}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -6993,7 +6999,7 @@ GameObject:
   - component: {fileID: 619054779}
   - component: {fileID: 619054781}
   - component: {fileID: 619054782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -7117,7 +7123,7 @@ GameObject:
   - component: {fileID: 644505306}
   - component: {fileID: 644505307}
   - component: {fileID: 644505308}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -7365,7 +7371,7 @@ GameObject:
   - component: {fileID: 663947124}
   - component: {fileID: 663947125}
   - component: {fileID: 663947126}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -7804,7 +7810,12 @@ MonoBehaviour:
   IsHorizontalLineFill: 0
   IsVerticalLineFill: 0
   ClearLineList: []
+  ClearLineListCount: 0
   Score: 0
+  MoveBlockList:
+  - {fileID: 2039863477}
+  - {fileID: 307837527}
+  - {fileID: 1866729025}
 --- !u!1 &719924452
 GameObject:
   m_ObjectHideFlags: 0
@@ -7817,7 +7828,7 @@ GameObject:
   - component: {fileID: 719924454}
   - component: {fileID: 719924455}
   - component: {fileID: 719924456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -8135,7 +8146,7 @@ GameObject:
   - component: {fileID: 730906514}
   - component: {fileID: 730906515}
   - component: {fileID: 730906516}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -8259,7 +8270,7 @@ GameObject:
   - component: {fileID: 731093556}
   - component: {fileID: 731093557}
   - component: {fileID: 731093558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -8383,7 +8394,7 @@ GameObject:
   - component: {fileID: 741457272}
   - component: {fileID: 741457273}
   - component: {fileID: 741457274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -8666,7 +8677,7 @@ GameObject:
   - component: {fileID: 755343922}
   - component: {fileID: 755343923}
   - component: {fileID: 755343924}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -8911,7 +8922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 781772011}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9078,7 +9089,7 @@ GameObject:
   - component: {fileID: 786870409}
   - component: {fileID: 786870411}
   - component: {fileID: 786870412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -9202,7 +9213,7 @@ GameObject:
   - component: {fileID: 797518362}
   - component: {fileID: 797518363}
   - component: {fileID: 797518364}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -9326,7 +9337,7 @@ GameObject:
   - component: {fileID: 801678727}
   - component: {fileID: 801678728}
   - component: {fileID: 801678729}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -9450,7 +9461,7 @@ GameObject:
   - component: {fileID: 846172918}
   - component: {fileID: 846172919}
   - component: {fileID: 846172920}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -9574,7 +9585,7 @@ GameObject:
   - component: {fileID: 853995458}
   - component: {fileID: 853995459}
   - component: {fileID: 853995460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -9698,7 +9709,7 @@ GameObject:
   - component: {fileID: 868309617}
   - component: {fileID: 868309618}
   - component: {fileID: 868309619}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -9822,7 +9833,7 @@ GameObject:
   - component: {fileID: 883708296}
   - component: {fileID: 883708297}
   - component: {fileID: 883708298}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -10070,7 +10081,7 @@ GameObject:
   - component: {fileID: 899460843}
   - component: {fileID: 899460845}
   - component: {fileID: 899460846}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -10318,7 +10329,7 @@ GameObject:
   - component: {fileID: 906014310}
   - component: {fileID: 906014311}
   - component: {fileID: 906014312}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -10566,7 +10577,7 @@ GameObject:
   - component: {fileID: 954037610}
   - component: {fileID: 954037611}
   - component: {fileID: 954037612}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -10690,7 +10701,7 @@ GameObject:
   - component: {fileID: 969223786}
   - component: {fileID: 969223787}
   - component: {fileID: 969223788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -11504,7 +11515,7 @@ GameObject:
   - component: {fileID: 1064860045}
   - component: {fileID: 1064860046}
   - component: {fileID: 1064860047}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -11628,7 +11639,7 @@ GameObject:
   - component: {fileID: 1071600419}
   - component: {fileID: 1071600420}
   - component: {fileID: 1071600421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -11752,7 +11763,7 @@ GameObject:
   - component: {fileID: 1076017034}
   - component: {fileID: 1076017035}
   - component: {fileID: 1076017036}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -11873,7 +11884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1082189809}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11916,7 +11927,7 @@ GameObject:
   - component: {fileID: 1096621737}
   - component: {fileID: 1096621738}
   - component: {fileID: 1096621739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -12040,7 +12051,7 @@ GameObject:
   - component: {fileID: 1107010557}
   - component: {fileID: 1107010558}
   - component: {fileID: 1107010559}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -12161,7 +12172,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1128373710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12328,7 +12339,7 @@ GameObject:
   - component: {fileID: 1133129814}
   - component: {fileID: 1133129815}
   - component: {fileID: 1133129816}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -12452,7 +12463,7 @@ GameObject:
   - component: {fileID: 1151423925}
   - component: {fileID: 1151423926}
   - component: {fileID: 1151423927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -12700,7 +12711,7 @@ GameObject:
   - component: {fileID: 1160133417}
   - component: {fileID: 1160133418}
   - component: {fileID: 1160133419}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -12824,7 +12835,7 @@ GameObject:
   - component: {fileID: 1184008615}
   - component: {fileID: 1184008616}
   - component: {fileID: 1184008617}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -12948,7 +12959,7 @@ GameObject:
   - component: {fileID: 1187786717}
   - component: {fileID: 1187786718}
   - component: {fileID: 1187786719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -13072,7 +13083,7 @@ GameObject:
   - component: {fileID: 1195730637}
   - component: {fileID: 1195730638}
   - component: {fileID: 1195730639}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -13196,7 +13207,7 @@ GameObject:
   - component: {fileID: 1199652946}
   - component: {fileID: 1199652947}
   - component: {fileID: 1199652948}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -13403,7 +13414,7 @@ GameObject:
   - component: {fileID: 1256574876}
   - component: {fileID: 1256574877}
   - component: {fileID: 1256574878}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -13651,7 +13662,7 @@ GameObject:
   - component: {fileID: 1280021533}
   - component: {fileID: 1280021535}
   - component: {fileID: 1280021536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -13775,7 +13786,7 @@ GameObject:
   - component: {fileID: 1286838442}
   - component: {fileID: 1286838443}
   - component: {fileID: 1286838444}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -13899,7 +13910,7 @@ GameObject:
   - component: {fileID: 1287591901}
   - component: {fileID: 1287591902}
   - component: {fileID: 1287591903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -14023,7 +14034,7 @@ GameObject:
   - component: {fileID: 1293814397}
   - component: {fileID: 1293814398}
   - component: {fileID: 1293814399}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -14408,7 +14419,7 @@ GameObject:
   - component: {fileID: 1342720392}
   - component: {fileID: 1342720393}
   - component: {fileID: 1342720394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -14529,7 +14540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1354356921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14638,7 +14649,7 @@ GameObject:
   - component: {fileID: 1363228356}
   - component: {fileID: 1363228357}
   - component: {fileID: 1363228358}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -14886,7 +14897,7 @@ GameObject:
   - component: {fileID: 1378111796}
   - component: {fileID: 1378111797}
   - component: {fileID: 1378111798}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -15041,10 +15052,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1ec152865583834e9a3396137d7c85e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SelectMoveBlock: {fileID: 0}
   HoldBlockManager: {fileID: 0}
   SelectHoldBlock: {fileID: 0}
   SelectHoldBlockColor: {r: 0, g: 0.5134952, b: 1, a: 1}
   SelectHoldBlockNumber: 0
+  MoveBlockList:
+  - {fileID: 2039863477}
+  - {fileID: 307837527}
+  - {fileID: 1866729025}
+  HoldBlockLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  MoveBlockLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1398461982
 GameObject:
   m_ObjectHideFlags: 0
@@ -15057,7 +15079,7 @@ GameObject:
   - component: {fileID: 1398461984}
   - component: {fileID: 1398461985}
   - component: {fileID: 1398461986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -15181,7 +15203,7 @@ GameObject:
   - component: {fileID: 1399901125}
   - component: {fileID: 1399901126}
   - component: {fileID: 1399901127}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -15305,7 +15327,7 @@ GameObject:
   - component: {fileID: 1405657229}
   - component: {fileID: 1405657230}
   - component: {fileID: 1405657231}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -15960,7 +15982,7 @@ GameObject:
   - component: {fileID: 1433889662}
   - component: {fileID: 1433889663}
   - component: {fileID: 1433889664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -16084,7 +16106,7 @@ GameObject:
   - component: {fileID: 1434719721}
   - component: {fileID: 1434719722}
   - component: {fileID: 1434719723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -16453,7 +16475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1470101238}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16493,7 +16515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1475798657}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16784,7 +16806,7 @@ GameObject:
   - component: {fileID: 1491075657}
   - component: {fileID: 1491075658}
   - component: {fileID: 1491075659}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -17280,7 +17302,7 @@ GameObject:
   - component: {fileID: 1534914524}
   - component: {fileID: 1534914525}
   - component: {fileID: 1534914526}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -17776,7 +17798,7 @@ GameObject:
   - component: {fileID: 1582396453}
   - component: {fileID: 1582396454}
   - component: {fileID: 1582396455}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -17900,7 +17922,7 @@ GameObject:
   - component: {fileID: 1598765703}
   - component: {fileID: 1598765704}
   - component: {fileID: 1598765705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -18024,7 +18046,7 @@ GameObject:
   - component: {fileID: 1635714765}
   - component: {fileID: 1635714766}
   - component: {fileID: 1635714767}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -18148,7 +18170,7 @@ GameObject:
   - component: {fileID: 1637255752}
   - component: {fileID: 1637255754}
   - component: {fileID: 1637255755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -18520,7 +18542,7 @@ GameObject:
   - component: {fileID: 1704412219}
   - component: {fileID: 1704412220}
   - component: {fileID: 1704412221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -18644,7 +18666,7 @@ GameObject:
   - component: {fileID: 1707404848}
   - component: {fileID: 1707404849}
   - component: {fileID: 1707404850}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -18927,7 +18949,7 @@ GameObject:
   - component: {fileID: 1743234961}
   - component: {fileID: 1743234962}
   - component: {fileID: 1743234963}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -19051,7 +19073,7 @@ GameObject:
   - component: {fileID: 1754745955}
   - component: {fileID: 1754745956}
   - component: {fileID: 1754745957}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -19175,7 +19197,7 @@ GameObject:
   - component: {fileID: 1761354153}
   - component: {fileID: 1761354154}
   - component: {fileID: 1761354155}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -19516,7 +19538,7 @@ GameObject:
   - component: {fileID: 1783322808}
   - component: {fileID: 1783322809}
   - component: {fileID: 1783322810}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -19637,7 +19659,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1790803082}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19680,7 +19702,7 @@ GameObject:
   - component: {fileID: 1800884559}
   - component: {fileID: 1800884561}
   - component: {fileID: 1800884562}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -19804,7 +19826,7 @@ GameObject:
   - component: {fileID: 1809168753}
   - component: {fileID: 1809168754}
   - component: {fileID: 1809168755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -19925,7 +19947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1840569821}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19968,7 +19990,7 @@ GameObject:
   - component: {fileID: 1849457778}
   - component: {fileID: 1849457780}
   - component: {fileID: 1849457781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -20215,7 +20237,7 @@ GameObject:
   - component: {fileID: 1866729023}
   - component: {fileID: 1866729024}
   - component: {fileID: 1866729025}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MoveBlock_3
   m_TagString: MoveBlock
   m_Icon: {fileID: 0}
@@ -20230,7 +20252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1866729022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.63, y: -2.5, z: 0}
+  m_LocalPosition: {x: -5.63, y: -2.5, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1421939456}
@@ -20279,6 +20301,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda41377d00faa5429a5ce8a0b76bb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OriginalVector: {x: 0, y: 0, z: 0}
+  SendColorData: {r: 0, g: 0, b: 0, a: 0}
+  AllDiffrentBlockDrop: 1
+  DropBlock: 0
+  MoveBlockManager: {fileID: 1381699501}
+  BlockColorList: []
   BlockZipTransform: {fileID: 1866729023}
 --- !u!1 &1868837042
 GameObject:
@@ -20540,7 +20568,7 @@ GameObject:
   - component: {fileID: 1896626987}
   - component: {fileID: 1896626988}
   - component: {fileID: 1896626989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -20664,7 +20692,7 @@ GameObject:
   - component: {fileID: 1903601833}
   - component: {fileID: 1903601835}
   - component: {fileID: 1903601836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -20788,7 +20816,7 @@ GameObject:
   - component: {fileID: 1934073374}
   - component: {fileID: 1934073375}
   - component: {fileID: 1934073376}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -21033,7 +21061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1941302093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlocks_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21200,7 +21228,7 @@ GameObject:
   - component: {fileID: 1948879583}
   - component: {fileID: 1948879584}
   - component: {fileID: 1948879585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -21572,7 +21600,7 @@ GameObject:
   - component: {fileID: 1960733173}
   - component: {fileID: 1960733174}
   - component: {fileID: 1960733175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -21696,7 +21724,7 @@ GameObject:
   - component: {fileID: 1974567172}
   - component: {fileID: 1974567173}
   - component: {fileID: 1974567174}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -21820,7 +21848,7 @@ GameObject:
   - component: {fileID: 1981123821}
   - component: {fileID: 1981123822}
   - component: {fileID: 1981123823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -22192,7 +22220,7 @@ GameObject:
   - component: {fileID: 2004075091}
   - component: {fileID: 2004075092}
   - component: {fileID: 2004075093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -22440,7 +22468,7 @@ GameObject:
   - component: {fileID: 2014279623}
   - component: {fileID: 2014279624}
   - component: {fileID: 2014279625}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -22564,7 +22592,7 @@ GameObject:
   - component: {fileID: 2015872841}
   - component: {fileID: 2015872842}
   - component: {fileID: 2015872843}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -22811,7 +22839,7 @@ GameObject:
   - component: {fileID: 2039863475}
   - component: {fileID: 2039863476}
   - component: {fileID: 2039863477}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MoveBlock_1
   m_TagString: MoveBlock
   m_Icon: {fileID: 0}
@@ -22826,7 +22854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2039863474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.63, y: 3.5, z: 0}
+  m_LocalPosition: {x: -5.63, y: 3.5, z: -1}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 574108525}
@@ -22875,6 +22903,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eda41377d00faa5429a5ce8a0b76bb2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OriginalVector: {x: 0, y: 0, z: 0}
+  SendColorData: {r: 0, g: 0, b: 0, a: 0}
+  AllDiffrentBlockDrop: 1
+  DropBlock: 0
+  MoveBlockManager: {fileID: 1381699501}
+  BlockColorList: []
   BlockZipTransform: {fileID: 2039863475}
 --- !u!1 &2064689911
 GameObject:
@@ -22888,7 +22922,7 @@ GameObject:
   - component: {fileID: 2064689913}
   - component: {fileID: 2064689914}
   - component: {fileID: 2064689915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -23136,7 +23170,7 @@ GameObject:
   - component: {fileID: 2078392914}
   - component: {fileID: 2078392915}
   - component: {fileID: 2078392916}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
@@ -23419,7 +23453,7 @@ GameObject:
   - component: {fileID: 2120052930}
   - component: {fileID: 2120052931}
   - component: {fileID: 2120052932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HoldBlock
   m_TagString: HoldBlock
   m_Icon: {fileID: 0}
