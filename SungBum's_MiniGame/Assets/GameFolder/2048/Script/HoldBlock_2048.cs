@@ -7,7 +7,7 @@ public class HoldBlock_2048 : MonoBehaviour
 {
     [Space(10)] public int BlockNumber;
 
-    [Space(10) ,SerializeField] int BlockValue = 0;
+    [Space(10)] public int BlockValue = 0;
     [SerializeField] Text BlockText;
 
     // Start is called before the first frame update

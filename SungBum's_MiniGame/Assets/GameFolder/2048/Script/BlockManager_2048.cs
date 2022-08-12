@@ -10,6 +10,11 @@ public class BlockManager_2048 : MonoBehaviour
     [SerializeField] GameObject Board;
     [SerializeField] GameObject[,] Blocks = new GameObject[BLOCK_SIZE, BLOCK_SIZE];
 
+    [SerializeField] List<GameObject> ContainNumberBlockList;
+    [SerializeField] List<GameObject> NoneNumberBlockList;
+
+    [SerializeField] List<Color> Colors = new List<Color>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +38,8 @@ public class BlockManager_2048 : MonoBehaviour
             foreach(Transform Block in Line.transform)
             {
                 Blocks[i, j] = Block.gameObject;
+                NoneNumberBlockList.Add(Block.gameObject);
+
                 Block.GetComponent<HoldBlock_2048>().BlockSetting(BlockNum);
 
                 j++;
@@ -43,14 +50,33 @@ public class BlockManager_2048 : MonoBehaviour
             i++;
         }
     }
+
     void BoradSetting()
     {
         for (int i = 0; i < START_BLOCK_COUNT; i++)
         {
-            int x = Random.Range(0, BLOCK_SIZE), y = Random.Range(0, BLOCK_SIZE);
-            Debug.Log($"{x},{y}");
+            int RandomNumber = Random.Range(0, NoneNumberBlockList.Count);
+            Debug.Log(RandomNumber);
 
-            Blocks[x, y].GetComponent<HoldBlock_2048>().SetValue(1);
+            ContainNumberBlockList.Add(NoneNumberBlockList[RandomNumber]);
+
+            NoneNumberBlockList[RandomNumber].GetComponent<HoldBlock_2048>().SetValue(RandomValue());
+            NoneNumberBlockList.RemoveAt(RandomNumber);
         }
+    }
+
+    int RandomValue()
+    {
+        int value = 0;
+
+        int RanValue = Random.Range(0, 10);
+
+        if (RanValue < 9)
+            value = 2;
+
+        else
+            value = 4;
+
+        return value;
     }
 }
