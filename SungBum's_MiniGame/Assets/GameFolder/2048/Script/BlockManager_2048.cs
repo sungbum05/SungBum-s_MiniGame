@@ -37,22 +37,22 @@ public class BlockManager_2048 : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            MoveBlockValue(MoveAxis.Horizontal, 1);
+            StartCoroutine(MoveBlockValue(MoveAxis.Horizontal, 1));
         }
 
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            MoveBlockValue(MoveAxis.Horizontal, -1);
+            StartCoroutine(MoveBlockValue(MoveAxis.Horizontal, -1));
         }
 
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            MoveBlockValue(MoveAxis.Vertical, 1);
+            StartCoroutine(MoveBlockValue(MoveAxis.Vertical, -1));
         }
 
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            MoveBlockValue(MoveAxis.Vertical, -1);
+            StartCoroutine(MoveBlockValue(MoveAxis.Vertical, 1));
         }
     }
 
@@ -108,40 +108,66 @@ public class BlockManager_2048 : MonoBehaviour
         return value;
     }
 
-    void MoveBlockValue(MoveAxis Axis, int Dir)
+    IEnumerator MoveBlockValue(MoveAxis Axis, int Dir)
     {
-        int MoveLinevalue = Dir == 1 ? Blocks.GetLength(0) : 0;
-        int BorderValue = Dir == 1 ? 0 : Blocks.GetLength(0);
-        int AddValue = Dir == 1 ? 1 : 0;
-
-        int TestValue = 1;
+        yield return null;
 
         if (Axis.Equals(MoveAxis.Horizontal)) // 새로 줄 이동
         {
+            int MoveLinevalue = Dir == 1 ? Blocks.GetLength(0) : 0;
+            int BorderValue = Dir == 1 ? 0 : Blocks.GetLength(0);
+            int AddValue = Dir == 1 ? 1 : 0;
+
             for (int i = 0; i < Blocks.GetLength(0); i++)
             {
+                yield return null;
+
                 for (int j = MoveLinevalue; j != BorderValue; j += (-1 * Dir))
                 {
-                    Debug.Log("J");
-                    Debug.Log(j - AddValue);
+                    yield return null;
 
-                    Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(TestValue);
-                    TestValue++;
+                    int MoveToPos = 0;
+
+                    int BlockNum = j - AddValue;
+
+                    while (true)
+                    {
+                        yield return null;
+
+                        
+                        BlockNum ++;
+                        Debug.Log(BlockNum);
+
+                        if (BlockNum == 4)
+                            break;
+                    }
+
+                    //Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(TestValue);
                 }
             }
+
+            Debug.Log("END");
         }
 
         else // 가로 줄 이동
         {
+            int MoveLinevalue = Dir == 1 ? Blocks.GetLength(0) : 0;
+            int BorderValue = Dir == 1 ? 0 : Blocks.GetLength(0);
+            int AddValue = Dir == 1 ? 1 : 0;
+
             for (int i = 0; i < Blocks.GetLength(1); i++)
             {
+                yield return null;
+
                 for (int j = MoveLinevalue; j != BorderValue; j += (-1 * Dir))
                 {
+
+                    yield return null;
+
                     Debug.Log("J");
                     Debug.Log(j - AddValue);
 
-                    Blocks[j - AddValue, i].GetComponent<HoldBlock_2048>().SetValue(TestValue);
-                    TestValue++;
+                    //Blocks[j - AddValue, i].GetComponent<HoldBlock_2048>().SetValue(TestValue);
                 }
             }
         }
