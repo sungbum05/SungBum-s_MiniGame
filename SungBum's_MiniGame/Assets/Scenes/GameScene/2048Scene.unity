@@ -3208,6 +3208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Board: {fileID: 1627854855}
+  ContainNumberBlockList: []
+  NoneNumberBlockList: []
+  Colors: []
 --- !u!4 &1182845520
 Transform:
   m_ObjectHideFlags: 0

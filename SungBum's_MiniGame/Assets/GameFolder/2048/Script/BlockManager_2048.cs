@@ -66,6 +66,8 @@ public class BlockManager_2048 : MonoBehaviour
             foreach (Transform Block in Line.transform)
             {
                 Blocks[i, j] = Block.gameObject;
+                Block.gameObject.name = $"{Block.name}_{BlockNum}";
+
                 NoneNumberBlockList.Add(Block.gameObject);
 
                 Block.GetComponent<HoldBlock_2048>().BlockSetting(BlockNum);
@@ -134,15 +136,36 @@ public class BlockManager_2048 : MonoBehaviour
                     {
                         yield return null;
 
-                        
-                        BlockNum ++;
-                        Debug.Log(BlockNum);
+                        if (Dir == 1)
+                        {
+                            if (BlockNum >= 3)
+                            {
+                                Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(MoveToPos);
+                                break;
+                            }
 
-                        if (BlockNum == 4)
-                            break;
+                            MoveToPos++;
+
+                            BlockNum++;
+                            Debug.Log(BlockNum);
+                        }
+
+                        else
+                        {
+                            if (BlockNum <= 0)
+                            {
+                                Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(MoveToPos);
+                                break;
+                            }
+
+                            MoveToPos++;
+
+                            BlockNum--;
+                            Debug.Log(BlockNum);
+                        }
                     }
-
-                    //Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(TestValue);
+                    
+                    //Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(j - AddValue);
                 }
             }
 
