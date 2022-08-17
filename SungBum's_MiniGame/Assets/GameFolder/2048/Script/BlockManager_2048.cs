@@ -15,8 +15,8 @@ public class BlockManager_2048 : MonoBehaviour
     [SerializeField] GameObject Board;
     [SerializeField] GameObject[,] Blocks = new GameObject[BLOCK_SIZE, BLOCK_SIZE];
 
-    [SerializeField] List<GameObject> ContainNumberBlockList;
-    [SerializeField] List<GameObject> NoneNumberBlockList;
+    public List<GameObject> ContainNumberBlockList;
+    public List<GameObject> NoneNumberBlockList;
 
     [SerializeField] List<Color> Colors = new List<Color>();
 
@@ -68,9 +68,9 @@ public class BlockManager_2048 : MonoBehaviour
                 Blocks[i, j] = Block.gameObject;
                 Block.gameObject.name = $"{Block.name}_{BlockNum}";
 
-                NoneNumberBlockList.Add(Block.gameObject);
-
                 Block.GetComponent<HoldBlock_2048>().BlockSetting(BlockNum);
+
+                Block.gameObject.GetComponent<HoldBlock_2048>().ResetValue();
 
                 j++;
                 BlockNum++;
@@ -88,10 +88,7 @@ public class BlockManager_2048 : MonoBehaviour
             int RandomNumber = Random.Range(0, NoneNumberBlockList.Count);
             Debug.Log(RandomNumber);
 
-            ContainNumberBlockList.Add(NoneNumberBlockList[RandomNumber]);
-
             NoneNumberBlockList[RandomNumber].GetComponent<HoldBlock_2048>().SetValue(RandomValue());
-            NoneNumberBlockList.RemoveAt(RandomNumber);
         }
     }
 
@@ -132,36 +129,42 @@ public class BlockManager_2048 : MonoBehaviour
 
                     int BlockNum = j - AddValue;
 
-                    while (true)
+                    if (Blocks[i, (j - AddValue)].GetComponent<HoldBlock_2048>().BlockValue > 0)
                     {
-                        yield return null;
+                        int SendValue = Blocks[i, (j - AddValue)].GetComponent<HoldBlock_2048>().BlockValue;
+                        Blocks[i, (j - AddValue)].GetComponent<HoldBlock_2048>().ResetValue();
 
-                        if (Dir == 1)
+                        while (true)
                         {
-                            if (BlockNum >= 3)
+                            yield return null;
+
+                            if (Dir == 1)
                             {
-                                Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(MoveToPos);
-                                break;
+                                if (BlockNum >= 3)
+                                {
+                                    Blocks[i, (j - AddValue) + MoveToPos].GetComponent<HoldBlock_2048>().SetValue(SendValue);
+                                    break;
+                                }
+
+                                MoveToPos++;
+
+                                BlockNum++;
+                                Debug.Log(BlockNum);
                             }
 
-                            MoveToPos++;
-
-                            BlockNum++;
-                            Debug.Log(BlockNum);
-                        }
-
-                        else
-                        {
-                            if (BlockNum <= 0)
+                            else
                             {
-                                Blocks[i, j - AddValue].GetComponent<HoldBlock_2048>().SetValue(MoveToPos);
-                                break;
+                                if (BlockNum <= 0)
+                                {
+                                    Blocks[i, (j - AddValue) - MoveToPos].GetComponent<HoldBlock_2048>().SetValue(SendValue);
+                                    break;
+                                }
+
+                                MoveToPos++;
+
+                                BlockNum--;
+                                Debug.Log(BlockNum);
                             }
-
-                            MoveToPos++;
-
-                            BlockNum--;
-                            Debug.Log(BlockNum);
                         }
                     }
                     
