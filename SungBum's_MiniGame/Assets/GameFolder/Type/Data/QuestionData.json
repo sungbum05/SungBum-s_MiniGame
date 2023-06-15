@@ -1,0 +1,204 @@
+{
+   "QuestionData": [
+      {
+         "Idx": 1,
+         "Questions": "가는 날이 장날"
+      },
+      {
+         "Idx": 2,
+         "Questions": "가는 말이 고와야 오는 말이 곱다"
+      },
+      {
+         "Idx": 3,
+         "Questions": "가랑비에 옷 젖는 줄 모른다"
+      },
+      {
+         "Idx": 4,
+         "Questions": "가랑잎이 솔잎더러 바스락거린다고 한다"
+      },
+      {
+         "Idx": 5,
+         "Questions": "가재는 게 편"
+      },
+      {
+         "Idx": 6,
+         "Questions": "가지 많은 나무에 바람 잘 날이 없다"
+      },
+      {
+         "Idx": 7,
+         "Questions": "간에 가 붙고 쓸개에 가 붙는다"
+      },
+      {
+         "Idx": 8,
+         "Questions": "감기 고뿔도 남을 안 준다"
+      },
+      {
+         "Idx": 9,
+         "Questions": "값싼 비지떡"
+      },
+      {
+         "Idx": 10,
+         "Questions": "같은 값이면 다홍치마"
+      },
+      {
+         "Idx": 11,
+         "Questions": "개같이 벌어서 정승같이 산다"
+      },
+      {
+         "Idx": 12,
+         "Questions": "개구리 올챙이 적 생각 못 한다"
+      },
+      {
+         "Idx": 13,
+         "Questions": "거미도 줄을 쳐야 벌레를 잡는다"
+      },
+      {
+         "Idx": 14,
+         "Questions": "겨 묻은 개가 똥 묻은 개를 나무란다"
+      },
+      {
+         "Idx": 15,
+         "Questions": "계란으로 바위 치기"
+      },
+      {
+         "Idx": 16,
+         "Questions": "고기는 씹어야 맛이요, 말은 해야 맛이라"
+      },
+      {
+         "Idx": 17,
+         "Questions": "고생 끝에 낙이 온다"
+      },
+      {
+         "Idx": 18,
+         "Questions": "고슴도치도 제 새끼가 제일 곱다고 한다"
+      },
+      {
+         "Idx": 19,
+         "Questions": "고양이 목에 방울 달기"
+      },
+      {
+         "Idx": 20,
+         "Questions": "공든 탑이 무너지랴"
+      },
+      {
+         "Idx": 21,
+         "Questions": "구더기 무서워 장 못 담글까"
+      },
+      {
+         "Idx": 22,
+         "Questions": "구슬이 서 말이라도 꿰어야 보배"
+      },
+      {
+         "Idx": 23,
+         "Questions": "굶어 보아야 세상을 안다"
+      },
+      {
+         "Idx": 24,
+         "Questions": "귀에 걸면 귀걸이 코에 걸면 코걸이"
+      },
+      {
+         "Idx": 25,
+         "Questions": "그물에 걸린 고기 신세"
+      },
+      {
+         "Idx": 26,
+         "Questions": "금강산 구경도 먹은 후에야 한다"
+      },
+      {
+         "Idx": 27,
+         "Questions": "까마귀 날자 배 떨어진다"
+      },
+      {
+         "Idx": 28,
+         "Questions": "꿩 대신 닭"
+      },
+      {
+         "Idx": 29,
+         "Questions": "꿩 먹고 알 먹고"
+      },
+      {
+         "Idx": 30,
+         "Questions": "남의 잔치에 감 놓아라 배 놓아라 한다"
+      },
+      {
+         "Idx": 31,
+         "Questions": "낫 놓고 기역 자도 모른다"
+      },
+      {
+         "Idx": 32,
+         "Questions": "낮말은 새가 듣고 밤말은 쥐가 듣는다"
+      },
+      {
+         "Idx": 33,
+         "Questions": "내 코가 석 자"
+      },
+      {
+         "Idx": 34,
+         "Questions": "누워서 침 뱉기"
+      },
+      {
+         "Idx": 35,
+         "Questions": "달면 삼키고 쓰면 뱉는다"
+      },
+      {
+         "Idx": 36,
+         "Questions": "닭 쫓던 개 울타리 넘겨다보듯"
+      },
+      {
+         "Idx": 37,
+         "Questions": "도둑이 제 발 저리다"
+      },
+      {
+         "Idx": 38,
+         "Questions": "돌다리도 두들겨 보고 건너라"
+      },
+      {
+         "Idx": 39,
+         "Questions": "되로 주고 말로 받는다"
+      },
+      {
+         "Idx": 40,
+         "Questions": "될성부른 나무는 떡잎부터 알아본다"
+      },
+      {
+         "Idx": 41,
+         "Questions": "등잔 밑이 어둡다"
+      },
+      {
+         "Idx": 42,
+         "Questions": "땅 짚고 헤엄치기"
+      },
+      {
+         "Idx": 43,
+         "Questions": "뛰는 놈 위에 나는 놈 있다"
+      },
+      {
+         "Idx": 44,
+         "Questions": "마른하늘에 날벼락"
+      },
+      {
+         "Idx": 45,
+         "Questions": "말만 잘하면 천 냥 빚도 가린다"
+      },
+      {
+         "Idx": 46,
+         "Questions": "말이 씨가 된다"
+      },
+      {
+         "Idx": 47,
+         "Questions": "모기 보고 칼 빼기"
+      },
+      {
+         "Idx": 48,
+         "Questions": "모난 돌이 정 맞는다"
+      },
+      {
+         "Idx": 49,
+         "Questions": "목마른 놈이 우물 판다"
+      },
+      {
+         "Idx": 50,
+         "Questions": "믿는 도끼에 발등 찍힌다"
+      }
+   ]
+}
