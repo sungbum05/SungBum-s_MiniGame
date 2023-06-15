@@ -26,6 +26,8 @@ public class TypeGameManager : MonoBehaviour
     private string QuestionStr;
     [SerializeField]
     private string InputStr;
+    [SerializeField]
+    private int ClearCount = 0;
 
     [Header("외부 변수-컴포넌트")]
     public Image GaugeImage;
@@ -41,6 +43,9 @@ public class TypeGameManager : MonoBehaviour
         {
             CurrentGauge -= DecreaseSpeed * Time.deltaTime;
             GaugeImage.fillAmount = CurrentGauge / MaxGauge;
+
+            if (CurrentGauge <= 0)
+                GameOver();
         }
     }
 
@@ -58,6 +63,16 @@ public class TypeGameManager : MonoBehaviour
         QuestionSystem.GameStart(this);
     }
 
+    public void GameOver()
+    {
+        StartPanel.SetActive(true);
+        DecreaseSpeed = 0.0f;
+
+        MaxGauge = 100;
+        CurrentGauge = MaxGauge;
+        GaugeImage.fillAmount = CurrentGauge / MaxGauge;
+    }
+
     public void AnswerSetting(string Answer)
     {
         InputStr = Answer;
@@ -65,6 +80,9 @@ public class TypeGameManager : MonoBehaviour
         if(InputStr == QuestionStr)
         {
             CurrentGauge = MaxGauge;
+            ClearCount++;
+            DecreaseSpeed = 2.0f + (ClearCount / 2.0f);
+
             QuestionSystem.MakeQuestion();
         }
 
