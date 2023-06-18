@@ -1,0 +1,7 @@
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\FreeNet\obj\Debug\FreeNet.csproj.AssemblyReference.cache
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\FreeNet\obj\Debug\FreeNet.csproj.CoreCompileInputs.cache
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\FreeNet\bin\Debug\FreeNet.pdb
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\FreeNet\obj\Debug\FreeNet.pdb
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\FreeNet\bin\Debug\FreeNet.dll.config
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\FreeNet\bin\Debug\FreeNet.dll
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\FreeNet\obj\Debug\FreeNet.dll

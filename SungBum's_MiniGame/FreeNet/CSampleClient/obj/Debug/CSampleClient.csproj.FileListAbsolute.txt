@@ -1,0 +1,12 @@
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\bin\Debug\CSampleClient.exe.config
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\bin\Debug\CSampleClient.exe
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\bin\Debug\CSampleClient.pdb
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\bin\Debug\FreeNet.pdb
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\obj\Debug\CSampleClient.csproj.AssemblyReference.cache
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\obj\Debug\CSampleClient.csproj.SuggestedBindingRedirects.cache
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\obj\Debug\CSampleClient.csproj.CoreCompileInputs.cache
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\obj\Debug\CSampleClient.csproj.CopyComplete
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\obj\Debug\CSampleClient.exe
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\obj\Debug\CSampleClient.pdb
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\bin\Debug\FreeNet.dll
+F:\portfolio\Fork\SungBum-s_MiniGame\SungBum's_MiniGame\FreeNet\CSampleClient\bin\Debug\FreeNet.dll.config
