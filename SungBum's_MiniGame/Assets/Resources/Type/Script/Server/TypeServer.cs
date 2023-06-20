@@ -6,12 +6,6 @@ using UnityEngine.UI;
 using System;
 using System.IO;
 
-public enum SendType
-{
-    All,
-    Other,
-}
-
 public class TypeServer : MonoBehaviour
 {
     public InputField PortInput;
@@ -38,14 +32,14 @@ public class TypeServer : MonoBehaviour
 
             StartListening();
             ServerStarted = true;
-            TypeChat.Instance.ShowMessage($"서버가 포트번호:{port}에서 시작하였습니다.");
+            Debug.Log($"서버가 포트번호:{port}에서 시작하였습니다.");
 
             Client.IsHost = true;
             Client.ConnectToServer();
         }
-        catch(Exception e)
+        catch (Exception e)
         {
-            TypeChat.Instance.ShowMessage($"Socket Error: {e.Message}");
+            Debug.Log($"Socket Error: {e.Message}");
         }
     }
 
@@ -53,10 +47,10 @@ public class TypeServer : MonoBehaviour
     {
         if (!ServerStarted) return;
 
-        foreach(TypeServerClient C in Clients)
+        foreach (TypeServerClient C in Clients)
         {
             //한 개 클라이언트가 서버에서 연결이 끊겼을 때
-            if(!IsConnected(C.Tcp))
+            if (!IsConnected(C.Tcp))
             {
                 C.Tcp.Close();
                 DisconnectList.Add(C);
@@ -67,19 +61,19 @@ public class TypeServer : MonoBehaviour
             else
             {
                 NetworkStream S = C.Tcp.GetStream();
-                if(S.DataAvailable)
+                if (S.DataAvailable)
                 {
                     string Data = new StreamReader(S, true).ReadLine();
                     if (Data != null)
                         OnIncomingData(C, Data);
-                        
+
                 }
             }
 
             //연결 해제된 클라이언트 리스트 처리
             for (int i = 0; i < DisconnectList.Count - 1; i++)
             {
-                Brodcast($"{DisconnectList[1].ClientName} 연결이 끊어졌습니다.", Clients, SendType.All);
+                BrodcastAll($"{DisconnectList[1].ClientName} 연결이 끊어졌습니다.", Clients);
 
                 Clients.Remove(DisconnectList[i]);
                 DisconnectList.RemoveAt(i);
@@ -121,75 +115,78 @@ public class TypeServer : MonoBehaviour
         StartListening();
 
         //브로드 캐스트 함수 사용하여 클라이언트 연결 메세지 보냄
-        Brodcast("%NAME", new List<TypeServerClient>() { Clients[Clients.Count - 1] }, SendType.All);
-        Brodcast($"%USER|{Clients.Count}", Clients, SendType.All);
+        BrodcastAll("%NAME", new List<TypeServerClient>() { Clients[Clients.Count - 1] });
+        BrodcastAll($"%USER|{Clients.Count}", Clients);
     }
 
     void OnIncomingData(TypeServerClient C, string Data)
     {
+        Debug.Log("SeverIncome" + C.ClientName + "|" + Data);
+
         if (Data.Contains("&NAME"))
         {
             C.ClientName = Data.Split('|')[1];
-            Brodcast($"{C.ClientName}이 연결되었습니다.", Clients, SendType.All);
+            BrodcastAll($"{C.ClientName}이 연결되었습니다.", Clients);
             return;
         }
 
-        else if(Data.Contains("&ANSWER"))
+        else if (Data.Contains("&ANSWER"))
         {
             Debug.Log("OtherCheack");
-            Brodcast($"%OTHER|{Data}", Clients, SendType.Other);
+            BrodcastOther(C, $"%OTHER|{Data.Split('|')[1]}", Clients);
         }
 
-        Brodcast($"{C.ClientName} : {Data}", Clients, SendType.All);
+        BrodcastAll($"{C.ClientName} : {Data}", Clients);
     }
 
-    void Brodcast(string Data, List<TypeServerClient> Clients, SendType Type)
+    void BrodcastAll(string Data, List<TypeServerClient> Clients)
     {
-        if (Type == SendType.All)
+        foreach (var C in Clients)
         {
-            foreach (var C in Clients)
+            try
             {
-                try
+                StreamWriter Writer = new StreamWriter(C.Tcp.GetStream());
+                Writer.WriteLine(Data);
+                Writer.Flush();
+            }
+            catch (Exception e)
+            {
+                Debug.Log($"쓰기 에러 : {e.Message}를 클라이언트에게 {C.ClientName}");
+            }
+        }
+    }
+
+    void BrodcastOther(TypeServerClient Owner, string Data, List<TypeServerClient> Clients)
+    {
+        foreach (var C in Clients)
+        {
+            try
+            {
+                if (C.ClientName != Owner.ClientName)
                 {
+                    Debug.Log($"Owner:{Owner.ClientName}\nOther:{C.ClientName}\nData:{Data}");
                     StreamWriter Writer = new StreamWriter(C.Tcp.GetStream());
                     Writer.WriteLine(Data);
                     Writer.Flush();
                 }
-                catch (Exception e)
-                {
-                    TypeChat.Instance.ShowMessage($"쓰기 에러 : {e.Message}를 클라이언트에게 {C.ClientName}");
-                }
             }
-        }
-
-        else if(Type == SendType.Other)
-        {
-            if(Client.IsHost == true)
+            catch (Exception e)
             {
-                StreamWriter Writer = new StreamWriter(Clients[1].Tcp.GetStream());
-                Writer.WriteLine(Data);
-                Writer.Flush();
-            }
-
-            else
-            {
-                StreamWriter Writer = new StreamWriter(Clients[0].Tcp.GetStream());
-                Writer.WriteLine(Data);
-                Writer.Flush();
+                Debug.Log($"쓰기 에러 : {e.Message}를 클라이언트에게 {C.ClientName}");
             }
         }
     }
-}
 
-[System.Serializable]
-public class TypeServerClient
-{
-    public TcpClient Tcp;
-    public string ClientName;
-
-    public TypeServerClient(TcpClient clientSocket)
+    [System.Serializable]
+    public class TypeServerClient
     {
-        ClientName = "Guest";
-        Tcp = clientSocket;
+        public TcpClient Tcp;
+        public string ClientName;
+
+        public TypeServerClient(TcpClient clientSocket)
+        {
+            ClientName = "Guest";
+            Tcp = clientSocket;
+        }
     }
 }

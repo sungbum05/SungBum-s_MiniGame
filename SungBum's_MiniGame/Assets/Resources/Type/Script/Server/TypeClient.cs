@@ -9,7 +9,7 @@ using System;
 public class TypeClient : MonoBehaviour
 {
     public InputField IPInput, PortInput, NickInput;
-    string ClientName;
+    public string ClientName;
 
     bool SocketReady;
     TcpClient Socket;
@@ -43,7 +43,7 @@ public class TypeClient : MonoBehaviour
         }
         catch (Exception e) 
         {
-            TypeChat.Instance.ShowMessage($"家南 俊矾 : {e.Message}");
+            Debug.Log($"家南 俊矾 : {e.Message}");
         }
     }
 
@@ -83,7 +83,7 @@ public class TypeClient : MonoBehaviour
         else if (Data.Split('|')[0] == "%OTHER")
             TypeServerManager.Instance.MultiInput.OtherAnswer(Data.Split('|')[1]);
 
-        TypeChat.Instance.ShowMessage(Data);
+        Debug.Log(Data);
     }
 
     public void Send(string Data)
