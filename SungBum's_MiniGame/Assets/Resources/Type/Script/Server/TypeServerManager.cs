@@ -12,4 +12,6 @@ public class TypeServerManager : MonoBehaviour
     public TypeChat TypeChat;
 
     public MultiInput MultiInput;
+    public QuestionSystem QuestionSystem;
+    public ReciveQuestionInfo ReciveQuestionInfo;
 }

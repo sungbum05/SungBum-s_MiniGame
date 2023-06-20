@@ -16,6 +16,18 @@ public class MultiInput : MonoBehaviour
 
     public void EndAnswer()
     {
+        if (MyInputField.text == TypeServerManager.Instance.TypeClient.Question)
+        {
+            TypeServerManager.Instance.TypeClient.MyScore += 100;
+            TypeServerManager.Instance.TypeClient.ScoreSetting();
+
+            TypeServerManager.Instance.TypeClient.Send($"&OTHERSCORE");
+
+            TypeServerManager.Instance.TypeServer.StartQuestion();
+
+        }
+
+        TypeServerManager.Instance.MultiInput.MyInputField.ActivateInputField();
         MyInputField.text = "";
     }
 

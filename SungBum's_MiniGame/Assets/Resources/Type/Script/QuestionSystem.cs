@@ -14,19 +14,24 @@ public class QuestionSystem : MonoBehaviour
     public TypeGameManager GameManager;
     public ReciveQuestionInfo ReciveQuestionInfo;
 
-    public void GameStart(TypeGameManager MainManager)
+    public void Start()
     {
-        GameManager = MainManager;
         QuestionArray = ReciveQuestionInfo.GetQuestionData();
-
-        MakeQuestion();
     }
 
     public void MakeQuestion()
     {
         int QuestionNum = Random.Range(0, QuestionArray.Length);
 
-        GameManager.QuestionSetting(QuestionArray[QuestionNum].Questions);
         QuestionText.text = QuestionArray[QuestionNum].Questions;
+        StartCoroutine(DelayQuestion(QuestionNum));
+
+        Debug.Log("MakeQuestion");
+    }
+
+    IEnumerator DelayQuestion(int Num)
+    {
+        yield return new WaitForSeconds(0.05f);
+        TypeServerManager.Instance.TypeClient.Send($"&QUESTION|{QuestionArray[Num].Questions}");
     }
 }

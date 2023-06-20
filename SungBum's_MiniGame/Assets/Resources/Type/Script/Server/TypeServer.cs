@@ -18,6 +18,7 @@ public class TypeServer : MonoBehaviour
     bool ServerStarted;
 
     public TypeClient Client;
+    public bool GameStart = false;
 
     public void ServerCreate()
     {
@@ -46,6 +47,13 @@ public class TypeServer : MonoBehaviour
     private void Update()
     {
         if (!ServerStarted) return;
+
+        if(GameStart == false && Clients.Count >= MaxPlayerCount)
+        {
+            GameStart = true;
+
+            StartQuestion();
+        }
 
         foreach (TypeServerClient C in Clients)
         {
@@ -78,6 +86,14 @@ public class TypeServer : MonoBehaviour
                 Clients.Remove(DisconnectList[i]);
                 DisconnectList.RemoveAt(i);
             }
+        }
+    }
+
+    public void StartQuestion()
+    {
+        if (ServerStarted == true)
+        {
+            TypeServerManager.Instance.QuestionSystem.MakeQuestion();
         }
     }
 
@@ -134,6 +150,21 @@ public class TypeServer : MonoBehaviour
         {
             Debug.Log("OtherCheack");
             BrodcastOther(C, $"%OTHER|{Data.Split('|')[1]}", Clients);
+        }
+
+        else if(Data.Contains("&QUESTION"))
+        {
+            BrodcastAll($"%QUESTION|{Data.Split('|')[1]}", Clients);
+        }
+
+        else if(Data.Contains("&OTHERSCORE"))
+        {
+            BrodcastOther(C, "%OTHERSCORE", Clients);
+        }
+
+        else if(Data.Contains("&GAMEOVER"))
+        {
+            BrodcastAll("%GAMEOVER", Clients);
         }
 
         BrodcastAll($"{C.ClientName} : {Data}", Clients);

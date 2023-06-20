@@ -60,7 +60,6 @@ public class TypeGameManager : MonoBehaviour
         DecreaseSpeed = 2.0f;
 
         InputSystem.GameStart(this);
-        QuestionSystem.GameStart(this);
     }
 
     public void GameOver()

@@ -5,9 +5,11 @@ using UnityEngine.UI;
 using System.Net.Sockets;
 using System.IO;
 using System;
+using TMPro;
 
 public class TypeClient : MonoBehaviour
 {
+    [Header("Client Info")]
     public InputField IPInput, PortInput, NickInput;
     public string ClientName;
 
@@ -19,6 +21,16 @@ public class TypeClient : MonoBehaviour
 
     public GameObject StartPanel;
     public GameObject WaitPanel;
+    public GameObject WinPanel;
+    public GameObject LosePanel;
+
+    [Header("Game Info")]
+    public Text MyScoreTxt;
+    public Text OtherScoreTxt;
+    public int MyScore = 0;
+    public int OtherScore = 0;
+    public string Question = "";
+    public TextMeshProUGUI QuestionTxt = null;
 
     [Header("Server Info")]
     public bool IsHost;
@@ -41,7 +53,7 @@ public class TypeClient : MonoBehaviour
             Reader = new StreamReader(Stream);
             SocketReady = true;
         }
-        catch (Exception e) 
+        catch (Exception e)
         {
             Debug.Log($"소켓 에러 : {e.Message}");
         }
@@ -49,7 +61,7 @@ public class TypeClient : MonoBehaviour
 
     private void Update()
     {
-        if(SocketReady && Stream.DataAvailable)
+        if (SocketReady && Stream.DataAvailable)
         {
             string Data = Reader.ReadLine();
             if (Data != null)
@@ -57,22 +69,29 @@ public class TypeClient : MonoBehaviour
         }
 
         //서버 유저 정보 받아옴(임시)
-        if(ServerUser > 0 && ServerUser < MaxServerUser)
+        if (ServerUser > 0 && ServerUser < MaxServerUser)
         {
             StartPanel.SetActive(false);
             WaitPanel.SetActive(true);
         }
 
-        else if(ServerUser > 0 && ServerUser >= MaxServerUser)
+        else if (ServerUser > 0 && ServerUser >= MaxServerUser)
         {
             StartPanel.SetActive(false);
             WaitPanel.SetActive(false);
+
+            TypeServerManager.Instance.MultiInput.MyInputField.ActivateInputField();
+        }
+
+        if(MyScore == 1000)
+        {
+            Send("&GAMEOVER");
         }
     }
 
     void OnIncomingData(string Data)
     {
-        if(Data == "%NAME")
+        if (Data == "%NAME")
         {
             ClientName = NickInput.text == "" ? "Guest" + UnityEngine.Random.Range(1, 10000) : NickInput.text;
             Send($"&NAME|{ClientName}");
@@ -82,13 +101,38 @@ public class TypeClient : MonoBehaviour
             ServerUser = int.Parse(Data.Split('|')[1]);
         else if (Data.Split('|')[0] == "%OTHER")
             TypeServerManager.Instance.MultiInput.OtherAnswer(Data.Split('|')[1]);
+        else if (Data.Split('|')[0] == "%QUESTION")
+        {
+            Question = Data.Split('|')[1];
+            QuestionTxt.text = Question;
+        }
+
+        else if (Data.Equals("%OTHERSCORE"))
+        {
+            OtherScore += 100;
+            ScoreSetting();
+
+            TypeServerManager.Instance.MultiInput.MyInputField.text = "";
+            TypeServerManager.Instance.MultiInput.OtherInputField.text = "";
+
+            TypeServerManager.Instance.TypeServer.StartQuestion();
+        }
+
+        else if(Data.Equals("%GAMEOVER"))
+        {
+            if(MyScore > OtherScore)
+                WinPanel.SetActive(true);
+
+            else
+                LosePanel.SetActive(true);
+        }
 
         Debug.Log(Data);
     }
 
     public void Send(string Data)
     {
-        if(!SocketReady) return;
+        if (!SocketReady) return;
 
         Writer.WriteLine(Data);
         Writer.Flush();
@@ -104,6 +148,12 @@ public class TypeClient : MonoBehaviour
 
         string Message = SendInput.text;
         Send(Message);
+    }
+
+    public void ScoreSetting()
+    {
+        MyScoreTxt.text = $"Score: {MyScore}";
+        OtherScoreTxt.text = $"Score: {OtherScore}";
     }
 
     private void OnApplicationQuit()
